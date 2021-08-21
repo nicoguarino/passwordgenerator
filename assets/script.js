@@ -1,38 +1,18 @@
-
-// create function to generate password when generate-btn is pressed
-
-//after pressing button "click" prompted to answer password criteria questions
-
-// then prompted to select answers  to include in password criteria
-
-// when prompted for a length of password within 8-128 characters
-
-// when prompt is confirmed is should be validated
-
-// at least one character type should be selected
-
-//after all promts are answered then password is generated matching all selected criteria
-
 // when password is generated it is displayed written to page
 
-// -------------------------------------------------------------------------------------
-// Assignment code here
-
-
- 
 // functions built for random char types (lowercase, uppercase, numeric, and/or special characters) 
 function randomLower() {
 
-  var lower = "abcdefghijklmnopqrstuvwrxyz";
+  var lowerLetter = "abcdefghijklmnopqrstuvwrxyz";
 
-  return lower[Math.floor(Math.random() * lower.length)];
+  return lowerLetter[Math.floor(Math.random() * lowerLetter.length)];
 };
 
 function randomHigher() {
 
-  var higher = "ABCDEFGHIJKLMNOPQRSTUVWRXYZ";
+  var higherLetter = "ABCDEFGHIJKLMNOPQRSTUVWRXYZ";
 
-  return higher[Math.floor(Math.random() * higher.length)];
+  return higherLetter[Math.floor(Math.random() * higherLetter.length)];
 };
 
 function randomNum() {
@@ -44,21 +24,110 @@ function randomNum() {
 
 function randomChar() {
 
-  const ranChar = "`~!@#$%^&*()_+=-,./?[]{}|\<>'";
+  var ranChar = "`~!@#$%^&*()_+=-,./?[]{}|\<>'";
 
-  return ranChar[Math.floor(Math.random() * ranChar.length)]; 
+  return ranChar[Math.floor(Math.random() * ranChar.length)];
 };
 
-console.log(randomLower());
-console.log(randomHigher());
-console.log(randomNum());
-console.log(randomChar());
 
-// confirm or deny what functions to use "true or false" prompts 
+//  function to use "true or false" prompts that provide char types selected
+function randomizePassword(){
+
+  var lowerAbc = confirm("Do you want your password to include lowercase letters?");
+  var higherAbc = confirm("Do you want your password to include highercase letters?");
+  var numbers = confirm("Do you want your password to include numbers?");
+  var specialChar = confirm("Do you want your password to include special characters?");
+
+  
+  
+
+    if (lowerAbc && higherAbc && numbers && specialChar) {
+
+      console.log("You picked all options");
+
+      
+    } else if (lowerAbc && numbers && specialChar){
+
+      console.log("1 3 4");
+
+
+    } else if (higherAbc && numbers && specialChar) {
+
+      console.log("234");
+
+
+    } else if (lowerAbc && higherAbc && numbers) {
+
+      console.log("123");
+
+    } else if (lowerAbc && higherAbc && specialChar) {
+
+      console.log("124");
+
+    } else if(lowerAbc && higherAbc) {
+
+      console.log("You picked the first two options");
+
+  
+     } else if (lowerAbc && numbers) {
+
+      console.log("1 and 3");
+
+      
+    } else if (lowerAbc && specialChar ){
+      console.log("1 and 4");
+
+      
+    } else if (higherAbc && numbers) {
+      console.log("2 and 3");
+
+
+    } else if (higherAbc && specialChar) {
+      console.log("2 and 4");
+
+    } else if (lowerAbc) {
+      console.log("1");
+
+
+    } else if (higherAbc) {
+      console.log("2");
+
+
+    } else if (numbers) {
+      console.log("3");
 
 
 
-// generator (function to run generator)
+    } else if (specialChar) {
+      console.log("4");
+
+
+    } else {
+
+      alert("Please choose at least one option");
+      randomizePassword();
+    }
+
+};
+
+
+// generator (function to run generator) that prompts length of password
+ function generatePassword() {
+
+  var passwordLength = prompt("Please choose a character length between 8 and 128");
+
+  if(passwordLength >= 8 && passwordLength <= 128) {
+
+    randomizePassword();
+
+   } else {
+
+     alert("Please pick a character length between 8-128");
+
+     generatePassword();
+   }
+};
+
 
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
