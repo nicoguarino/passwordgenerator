@@ -20,7 +20,7 @@ Password Generator Website is designed to give you a random password with lowerc
 
 ## Code Sample <a name = "code-sample"></a>
 
-![Sample Code](https://github.com/nicoguarino/portfolio/blob/main/assests/images/sample_code.png?raw=true "Sample Code")
+![Sample Code](https://github.com/nicoguarino/passwordgenerator/blob/main/assets/images/code_sample_image.png?raw=true "Sample Code")
 
 ### Sample Code
 ```HTML Sample
